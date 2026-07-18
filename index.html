@@ -3,7 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>全球学术科研导航 · 发现国外大学生 & 教授社区</title>
+<title>全球学术科研导航 — 发现国外大学生·教授·研究者的 20+ 在线社区</title>
+<meta name="description" content="收录 20+ 个国外学术社区和社交平台，涵盖 ResearchGate、Academia.edu、Twitter/X、Reddit、LinkedIn 等，帮你快速融入国际大学生和教授科研圈子。">
+<meta name="keywords" content="学术导航,科研社区,国外大学,教授,PhD,ResearchGate,留学,学术社交,研究生,博后">
+<meta name="author" content="academic-nav">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="全球学术科研导航 — 发现国外大学生·教授·研究者社区">
+<meta property="og:description" content="收录 20+ 个国外学术社区和社交平台，帮你快速融入国际科研圈子。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dadadaqiang.github.io/academic-nav">
+<meta property="og:locale" content="zh_CN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="全球学术科研导航 — 发现国外大学生·教授·研究者社区">
+<meta name="twitter:description" content="收录 20+ 个国外学术社区和社交平台，帮你快速融入国际科研圈子。">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://dadadaqiang.github.io/academic-nav">
+
+<!-- PWA / iOS -->
+<meta name="apple-mobile-web-app-title" content="学术科研导航">
+<meta name="application-name" content="学术科研导航">
+
+<!-- Favicon (inline SVG for zero requests) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌐%3C/text%3E%3C/svg%3E">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "全球学术科研导航",
+  "description": "收录 20+ 个国外学术社区和社交平台，涵盖学术社交网络、师生连接平台、论坛、社交媒体等，帮助用户融入国际科研圈子。",
+  "url": "https://dadadaqiang.github.io/academic-nav",
+  "inLanguage": "zh-CN",
+  "about": {
+    "@type": "Thing",
+    "name": "学术社交网络导航"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"ResearchGate","url":"https://www.researchgate.net"},
+      {"@type":"ListItem","position":2,"name":"Academia.edu","url":"https://www.academia.edu"},
+      {"@type":"ListItem","position":3,"name":"小木虫","url":"https://muchong.com"},
+      {"@type":"ListItem","position":4,"name":"一亩三分地","url":"https://instant.1point3acres.cn"},
+      {"@type":"ListItem","position":5,"name":"Twitter/X","url":"https://x.com"},
+      {"@type":"ListItem","position":6,"name":"LinkedIn","url":"https://www.linkedin.com"},
+      {"@type":"ListItem","position":7,"name":"Reddit","url":"https://www.reddit.com"}
+    ]
+  }
+}
+</script>
+
 <style>
   :root {
     --bg: #f5f7fa;
@@ -108,6 +163,11 @@
     color: var(--text-secondary);
     padding: 0 10px;
     border-radius: 12px;
+  }
+  .category h2,
+  .category h3 {
+    all: unset;
+    display: revert;
   }
 
   /* card grid */
@@ -222,39 +282,39 @@
 
   <!-- 筛选 -->
   <div class="filter-bar" id="filterBar">
-    <button class="filter-btn active" data-filter="all">全部</button>
-    <button class="filter-btn" data-filter="social">学术社交</button>
-    <button class="filter-btn" data-filter="connect">师生连接</button>
-    <button class="filter-btn" data-filter="forum">综合社区</button>
-    <button class="filter-btn" data-filter="social-media">社交媒体</button>
-    <button class="filter-btn" data-filter="media">视频/资讯</button>
+    <button class="filter-btn active" data-filter="all" aria-label="显示全部分类">全部</button>
+    <button class="filter-btn" data-filter="social" aria-label="学术社交网络">学术社交</button>
+    <button class="filter-btn" data-filter="connect" aria-label="师生连接平台">师生连接</button>
+    <button class="filter-btn" data-filter="forum" aria-label="综合社区论坛">综合社区</button>
+    <button class="filter-btn" data-filter="social-media" aria-label="社交媒体">社交媒体</button>
+    <button class="filter-btn" data-filter="media" aria-label="视频资讯">视频/资讯</button>
   </div>
 
   <!-- ======== 专业学术社交网络 ======== -->
   <section class="category" data-cat="social">
     <div class="category-title">
       <span class="icon">🔬</span>
-      专业学术社交网络
-      <span class="badge">4 个平台</span>
+      <h2>专业学术社交网络</h2>
+      <span class="badge" aria-label="4 个平台">4 个平台</span>
     </div>
     <div class="card-grid">
       <div class="card marked" data-tags="论文,社交,跨学科">
-        <div class="card-name"><a href="https://www.researchgate.net" target="_blank" rel="noopener">ResearchGate</a></div>
+        <div class="card-name"><a href="https://www.researchgate.net" target="_blank" rel="noopener noreferrer">ResearchGate</a></div>
         <div class="card-desc">被誉为"科学界的Facebook"，2,500 万+科学家入驻。可分享论文、关注学者、加入讨论组、查看引用统计。微软创始人比尔·盖茨亦参与投资。</div>
         <div class="card-tags"><span class="tag-highlight">强烈推荐</span><span>论文分享</span><span>学术社交</span><span>讨论组</span></div>
       </div>
       <div class="card marked" data-tags="论文,跨学科">
-        <div class="card-name"><a href="https://www.academia.edu" target="_blank" rel="noopener">Academia.edu</a></div>
+        <div class="card-name"><a href="https://www.academia.edu" target="_blank" rel="noopener noreferrer">Academia.edu</a></div>
         <div class="card-desc">3 亿+ 研究者，分享论文、关注同行、追踪影响力分析、获取阅读下载统计。</div>
         <div class="card-tags"><span class="tag-highlight">强烈推荐</span><span>论文分享</span><span>影响力追踪</span></div>
       </div>
       <div class="card" data-tags="社交,工具">
-        <div class="card-name"><a href="https://lifeofresearch.com" target="_blank" rel="noopener">Life of Research</a></div>
+        <div class="card-name"><a href="https://lifeofresearch.com" target="_blank" rel="noopener noreferrer">Life of Research</a></div>
         <div class="card-desc">新型学术社交网络，内置 3,400+ 浏览器工具，AI 驱动发现，支持跨学科合作。</div>
         <div class="card-tags"><span>AI 发现</span><span>跨学科</span><span>在线工具</span></div>
       </div>
       <div class="card" data-tags="合作,基金">
-        <div class="card-name"><a href="https://wrulink.com" target="_blank" rel="noopener">WRULink</a></div>
+        <div class="card-name"><a href="https://wrulink.com" target="_blank" rel="noopener noreferrer">WRULink</a></div>
         <div class="card-desc">世界研究联盟旗下，AI 匹配合作者，自动抓取出版物，发现基金和合作机会。</div>
         <div class="card-tags"><span>AI 匹配</span><span>基金机会</span><span>合作</span></div>
       </div>
@@ -265,27 +325,27 @@
   <section class="category" data-cat="connect">
     <div class="category-title">
       <span class="icon">🎓</span>
-      学生 × 教授连接平台
-      <span class="badge">4 个平台</span>
+      <h2>学生 × 教授连接平台</h2>
+      <span class="badge" aria-label="4 个平台">4 个平台</span>
     </div>
     <div class="card-grid">
       <div class="card" data-tags="验证,博士,博后">
-        <div class="card-name"><a href="https://campus1network.com" target="_blank" rel="noopener">CampusConnect</a></div>
+        <div class="card-name"><a href="https://campus1network.com" target="_blank" rel="noopener noreferrer">CampusConnect</a></div>
         <div class="card-desc">验证制学术网络：学生上传 CV/学业证明，教授使用学校邮箱注册。可浏览 PhD、硕士、博后职位和合作项目。</div>
         <div class="card-tags"><span class="tag-green">实名验证</span><span>博士招生</span><span>项目合作</span></div>
       </div>
       <div class="card" data-tags="合作,基金">
-        <div class="card-name"><a href="https://www.researchercollab.com" target="_blank" rel="noopener">ResearcherCollab</a></div>
+        <div class="card-name"><a href="https://www.researchercollab.com" target="_blank" rel="noopener noreferrer">ResearcherCollab</a></div>
         <div class="card-desc">发布/发现开放合作邀约，追踪基金申请截止日期，为研究者匹配合作者。</div>
         <div class="card-tags"><span>合作邀约</span><span>基金追踪</span></div>
       </div>
       <div class="card" data-tags="项目,社交">
-        <div class="card-name"><a href="https://univlinks.com" target="_blank" rel="noopener">UnivLinks</a></div>
+        <div class="card-name"><a href="https://univlinks.com" target="_blank" rel="noopener noreferrer">UnivLinks</a></div>
         <div class="card-desc">创建研究项目、寻找队友、分享科研动态。面向学生和研究者的一站式平台。</div>
         <div class="card-tags"><span>项目发起</span><span>找队友</span></div>
       </div>
       <div class="card" data-tags="合作,AI">
-        <div class="card-name"><a href="https://www.teraopenscience.com" target="_blank" rel="noopener">TeraOpenScience</a></div>
+        <div class="card-name"><a href="https://www.teraopenscience.com" target="_blank" rel="noopener noreferrer">TeraOpenScience</a></div>
         <div class="card-desc">AI 驱动的科研合作平台，涵盖 STEM + 医疗领域，免费加入全球智囊团。</div>
         <div class="card-tags"><span>AI 驱动</span><span>STEM</span><span>免费</span></div>
       </div>
@@ -296,27 +356,27 @@
   <section class="category" data-cat="forum">
     <div class="category-title">
       <span class="icon">💬</span>
-      综合学术社区 / 论坛
-      <span class="badge">4 个平台</span>
+      <h2>综合学术社区 / 论坛</h2>
+      <span class="badge" aria-label="4 个平台">4 个平台</span>
     </div>
     <div class="card-grid">
       <div class="card marked" data-tags="中文,留学,博后">
-        <div class="card-name"><a href="https://muchong.com" target="_blank" rel="noopener">小木虫</a></div>
+        <div class="card-name"><a href="https://muchong.com" target="_blank" rel="noopener noreferrer">小木虫</a></div>
         <div class="card-desc">华人最大科研社区，700 万+ 用户。有"出国留学区"、"海外博后"、"导师招生"等板块，大量海外学者和留学生聚集。</div>
         <div class="card-tags"><span class="tag-highlight">华人首选</span><span>海外博后</span><span>留学</span><span>导师招生</span></div>
       </div>
       <div class="card marked" data-tags="中文,留学,求职">
-        <div class="card-name"><a href="https://instant.1point3acres.cn" target="_blank" rel="noopener">一亩三分地（留学论坛）</a></div>
+        <div class="card-name"><a href="https://instant.1point3acres.cn" target="_blank" rel="noopener noreferrer">一亩三分地（留学论坛）</a></div>
         <div class="card-desc">留学和海外求职知名社区，大量国外 CS/工科 在读学生和职场人士活跃，信息质量高。</div>
         <div class="card-tags"><span class="tag-highlight">留学必看</span><span>海外求职</span><span>CS/工科</span></div>
       </div>
       <div class="card" data-tags="中文,期刊,论文">
-        <div class="card-name"><a href="https://www.xueshuquan.org" target="_blank" rel="noopener">学术圈中文网</a></div>
+        <div class="card-name"><a href="https://www.xueshuquan.org" target="_blank" rel="noopener noreferrer">学术圈中文网</a></div>
         <div class="card-desc">学术期刊发表交流论坛，涵盖SCI/SSCI/北核等，也有考研、申博、导师关系交流版块。</div>
         <div class="card-tags"><span>论文发表</span><span>申博</span><span>考研</span></div>
       </div>
       <div class="card" data-tags="社交,3D">
-        <div class="card-name"><a href="https://www.labroots.com" target="_blank" rel="noopener">LabRoots</a></div>
+        <div class="card-name"><a href="https://www.labroots.com" target="_blank" rel="noopener noreferrer">LabRoots</a></div>
         <div class="card-desc">为科学家和医学专家打造的免费社交网络。特色是 3D 虚拟场景交流（虚拟门厅、展厅、展台）。</div>
         <div class="card-tags"><span>3D 虚拟交流</span><span>医学</span><span>资源共享</span></div>
       </div>
@@ -327,27 +387,27 @@
   <section class="category" data-cat="social-media">
     <div class="category-title">
       <span class="icon">🐦</span>
-      社交媒体（学术生态活跃）
-      <span class="badge">4 个平台</span>
+      <h2>社交媒体（学术生态活跃）</h2>
+      <span class="badge" aria-label="4 个平台">4 个平台</span>
     </div>
     <div class="card-grid">
       <div class="card marked" data-tags="社交,实时">
-        <div class="card-name"><a href="https://x.com" target="_blank" rel="noopener">Twitter / X</a></div>
+        <div class="card-name"><a href="https://x.com" target="_blank" rel="noopener noreferrer">Twitter / X</a></div>
         <div class="card-desc">国外教授和 PhD 学生最活跃的阵地。#AcademicTwitter #PhDLife 标签下每天大量论文分享、学术讨论、招人帖。关注领域大牛即可获取前沿动态。</div>
         <div class="card-tags"><span class="tag-highlight">最活跃</span><span>实时学术动态</span><span>招人帖</span></div>
       </div>
       <div class="card marked" data-tags="社交,职场">
-        <div class="card-name"><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></div>
+        <div class="card-name"><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
         <div class="card-desc">搜索教授/研究员/PhD 学生，直接 Connect 或发 InMail。很多导师会发布招人信息，适合建立 professional network。</div>
         <div class="card-tags"><span class="tag-highlight">职场社交</span><span>直接联系</span><span>招人信息</span></div>
       </div>
       <div class="card marked" data-tags="论坛,问答">
-        <div class="card-name"><a href="https://www.reddit.com" target="_blank" rel="noopener">Reddit 学术版块</a></div>
+        <div class="card-name"><a href="https://www.reddit.com" target="_blank" rel="noopener noreferrer">Reddit 学术版块</a></div>
         <div class="card-desc">推荐版块：r/academia（学术界综合）、r/AskAcademia（提问）、r/gradadmissions（硕博申请）、r/PhD（博士生日常）、r/GradSchool（研究生生活）。</div>
         <div class="card-tags"><span class="tag-highlight">真实讨论</span><span>版块丰富</span><span>匿名交流</span></div>
       </div>
       <div class="card" data-tags="社交,新兴">
-        <div class="card-name"><a href="https://bsky.app" target="_blank" rel="noopener">Bluesky</a></div>
+        <div class="card-name"><a href="https://bsky.app" target="_blank" rel="noopener noreferrer">Bluesky</a></div>
         <div class="card-desc">新兴学术社交阵地，很多学者从 Twitter 迁移至此。去中心化架构，学术氛围逐渐浓厚。</div>
         <div class="card-tags"><span>新兴平台</span><span>学者迁移</span><span>去中心化</span></div>
       </div>
@@ -358,27 +418,27 @@
   <section class="category" data-cat="media">
     <div class="category-title">
       <span class="icon">📹</span>
-      视频 / 即时通讯 / 其他
-      <span class="badge">4 个平台</span>
+      <h2>视频 / 即时通讯 / 其他</h2>
+      <span class="badge" aria-label="4 个平台">4 个平台</span>
     </div>
     <div class="card-grid">
       <div class="card" data-tags="视频,学术频道">
-        <div class="card-name"><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube 学术频道</a></div>
+        <div class="card-name"><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube 学术频道</a></div>
         <div class="card-desc">大量教授和 PhD 学生做学术分享、实验室 Vlog、课程讲座。评论区可直接互动提问。</div>
         <div class="card-tags"><span>学术 Vlog</span><span>课程讲座</span><span>评论区互动</span></div>
       </div>
       <div class="card" data-tags="即时通讯">
-        <div class="card-name">Slack / Discord 学术社群</div>
+        <div class="card-name"><a href="https://slack.com" target="_blank" rel="noopener noreferrer">Slack / Discord 学术社群</a></div>
         <div class="card-desc">很多领域（如 ML/CS/生物等）有开放研究群，日常讨论活跃。可在 Twitter/Reddit 上找到邀请链接。</div>
         <div class="card-tags"><span>即时交流</span><span>开放社群</span><span>领域专属</span></div>
       </div>
       <div class="card" data-tags="远程参会">
-        <div class="card-name"><a href="https://www.researchgate.net" target="_blank" rel="noopener">学术会议 / 线上研讨会</a></div>
+        <div class="card-name"><a href="https://www.researchgate.net" target="_blank" rel="noopener noreferrer">学术会议 / 线上研讨会</a></div>
         <div class="card-desc">在 ResearchGate 和各大出版社官网可以找到 upcoming conferences。很多会议现在提供线上参会的选项。</div>
         <div class="card-tags"><span>在线参会</span><span>学术会议</span><span>Networking</span></div>
       </div>
       <div class="card" data-tags="开放获取,论文">
-        <div class="card-name"><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></div>
+        <div class="card-name"><a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer">Google Scholar</a></div>
         <div class="card-desc">查学者 Profile、关注其最新发表、建立自己的学术档案。配合 ResearchGate 使用效果更佳。</div>
         <div class="card-tags"><span>学术档案</span><span>论文追踪</span><span>免费</span></div>
       </div>
@@ -399,6 +459,19 @@
   <footer>
     Made with ❤️ for the global research community · 数据整理于 2025 年
   </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "全球学术科研导航",
+      "item": "https://dadadaqiang.github.io/academic-nav"
+    }]
+  }
+  </script>
 
 </div>
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dadadaqiang.github.io/academic-nav/sitemap.xml
