@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球学术科研导航 · 发现国外大学生 & 教授社区</title>
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --card-bg: #ffffff;
+    --text: #1a1a2e;
+    --text-secondary: #555;
+    --accent: #3b49df;
+    --accent-light: #e8eaff;
+    --accent2: #0d9488;
+    --accent2-light: #e2f5f3;
+    --tag-bg: #f0f0f5;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    --radius: 14px;
+    --max-w: 1100px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 0 0 60px;
+    line-height: 1.6;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg, #3b49df 0%, #0d9488 100%);
+    color: white;
+    padding: 48px 24px 36px;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  header p {
+    opacity: .88;
+    font-size: 1.05rem;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  header .count {
+    display: inline-block;
+    margin-top: 14px;
+    background: rgba(255,255,255,.18);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: .85rem;
+    backdrop-filter: blur(4px);
+  }
+
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* filter bar */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 28px 0 24px;
+  }
+  .filter-btn {
+    background: var(--card-bg);
+    border: 1px solid #e2e4ea;
+    border-radius: 30px;
+    padding: 7px 18px;
+    font-size: .875rem;
+    cursor: pointer;
+    transition: all .15s;
+    color: var(--text-secondary);
+  }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* category */
+  .category { margin-bottom: 36px; }
+  .category-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e8eaee;
+  }
+  .category-title .icon { font-size: 1.3rem; }
+  .category-title .badge {
+    font-size: .75rem;
+    font-weight: 500;
+    background: var(--tag-bg);
+    color: var(--text-secondary);
+    padding: 0 10px;
+    border-radius: 12px;
+  }
+
+  /* card grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px 20px;
+    transition: transform .15s, box-shadow .2s;
+    border: 1px solid transparent;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.08);
+    border-color: #dde0e8;
+  }
+  .card-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .card-name a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .card-name a:hover { text-decoration: underline; }
+  .card-desc {
+    font-size: .875rem;
+    color: var(--text-secondary);
+    margin: 4px 0 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .card-tags span {
+    font-size: .72rem;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: var(--tag-bg);
+    color: var(--text-secondary);
+  }
+  .card-tags .tag-highlight {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+  .card-tags .tag-green {
+    background: var(--accent2-light);
+    color: var(--accent2);
+  }
+  .card.marked .card-name::after {
+    content: " ★推荐";
+    font-size: .72rem;
+    color: #e9a820;
+    font-weight: 500;
+  }
+
+  /* footer */
+  footer {
+    text-align: center;
+    padding: 40px 20px 20px;
+    color: #999;
+    font-size: .82rem;
+  }
+
+  /* suggestion box */
+  .suggestion {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px 24px;
+    margin-top: 28px;
+    border-left: 4px solid var(--accent);
+  }
+  .suggestion h3 { font-size: 1rem; margin-bottom: 8px; }
+  .suggestion ol {
+    padding-left: 20px;
+    font-size: .9rem;
+    color: var(--text-secondary);
+  }
+  .suggestion ol li { margin-bottom: 4px; }
+
+  /* responsive */
+  @media (max-width: 640px) {
+    header { padding: 36px 16px 28px; }
+    header h1 { font-size: 1.5rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .filter-bar { gap: 6px; }
+    .filter-btn { padding: 5px 14px; font-size: .8rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌐 全球学术科研导航</h1>
+  <p>发现国外大学生 · 教授 · 研究者的网络聚集地<br>带你融入国际科研圈子</p>
+  <span class="count">收录 20+ 平台 / 5 大分类</span>
+</header>
+
+<div class="container">
+
+  <!-- 筛选 -->
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="social">学术社交</button>
+    <button class="filter-btn" data-filter="connect">师生连接</button>
+    <button class="filter-btn" data-filter="forum">综合社区</button>
+    <button class="filter-btn" data-filter="social-media">社交媒体</button>
+    <button class="filter-btn" data-filter="media">视频/资讯</button>
+  </div>
+
+  <!-- ======== 专业学术社交网络 ======== -->
+  <section class="category" data-cat="social">
+    <div class="category-title">
+      <span class="icon">🔬</span>
+      专业学术社交网络
+      <span class="badge">4 个平台</span>
+    </div>
+    <div class="card-grid">
+      <div class="card marked" data-tags="论文,社交,跨学科">
+        <div class="card-name"><a href="https://www.researchgate.net" target="_blank" rel="noopener">ResearchGate</a></div>
+        <div class="card-desc">被誉为"科学界的Facebook"，2,500 万+科学家入驻。可分享论文、关注学者、加入讨论组、查看引用统计。微软创始人比尔·盖茨亦参与投资。</div>
+        <div class="card-tags"><span class="tag-highlight">强烈推荐</span><span>论文分享</span><span>学术社交</span><span>讨论组</span></div>
+      </div>
+      <div class="card marked" data-tags="论文,跨学科">
+        <div class="card-name"><a href="https://www.academia.edu" target="_blank" rel="noopener">Academia.edu</a></div>
+        <div class="card-desc">3 亿+ 研究者，分享论文、关注同行、追踪影响力分析、获取阅读下载统计。</div>
+        <div class="card-tags"><span class="tag-highlight">强烈推荐</span><span>论文分享</span><span>影响力追踪</span></div>
+      </div>
+      <div class="card" data-tags="社交,工具">
+        <div class="card-name"><a href="https://lifeofresearch.com" target="_blank" rel="noopener">Life of Research</a></div>
+        <div class="card-desc">新型学术社交网络，内置 3,400+ 浏览器工具，AI 驱动发现，支持跨学科合作。</div>
+        <div class="card-tags"><span>AI 发现</span><span>跨学科</span><span>在线工具</span></div>
+      </div>
+      <div class="card" data-tags="合作,基金">
+        <div class="card-name"><a href="https://wrulink.com" target="_blank" rel="noopener">WRULink</a></div>
+        <div class="card-desc">世界研究联盟旗下，AI 匹配合作者，自动抓取出版物，发现基金和合作机会。</div>
+        <div class="card-tags"><span>AI 匹配</span><span>基金机会</span><span>合作</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 专门连接学生与教授 ======== -->
+  <section class="category" data-cat="connect">
+    <div class="category-title">
+      <span class="icon">🎓</span>
+      学生 × 教授连接平台
+      <span class="badge">4 个平台</span>
+    </div>
+    <div class="card-grid">
+      <div class="card" data-tags="验证,博士,博后">
+        <div class="card-name"><a href="https://campus1network.com" target="_blank" rel="noopener">CampusConnect</a></div>
+        <div class="card-desc">验证制学术网络：学生上传 CV/学业证明，教授使用学校邮箱注册。可浏览 PhD、硕士、博后职位和合作项目。</div>
+        <div class="card-tags"><span class="tag-green">实名验证</span><span>博士招生</span><span>项目合作</span></div>
+      </div>
+      <div class="card" data-tags="合作,基金">
+        <div class="card-name"><a href="https://www.researchercollab.com" target="_blank" rel="noopener">ResearcherCollab</a></div>
+        <div class="card-desc">发布/发现开放合作邀约，追踪基金申请截止日期，为研究者匹配合作者。</div>
+        <div class="card-tags"><span>合作邀约</span><span>基金追踪</span></div>
+      </div>
+      <div class="card" data-tags="项目,社交">
+        <div class="card-name"><a href="https://univlinks.com" target="_blank" rel="noopener">UnivLinks</a></div>
+        <div class="card-desc">创建研究项目、寻找队友、分享科研动态。面向学生和研究者的一站式平台。</div>
+        <div class="card-tags"><span>项目发起</span><span>找队友</span></div>
+      </div>
+      <div class="card" data-tags="合作,AI">
+        <div class="card-name"><a href="https://www.teraopenscience.com" target="_blank" rel="noopener">TeraOpenScience</a></div>
+        <div class="card-desc">AI 驱动的科研合作平台，涵盖 STEM + 医疗领域，免费加入全球智囊团。</div>
+        <div class="card-tags"><span>AI 驱动</span><span>STEM</span><span>免费</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 综合学术社区 ======== -->
+  <section class="category" data-cat="forum">
+    <div class="category-title">
+      <span class="icon">💬</span>
+      综合学术社区 / 论坛
+      <span class="badge">4 个平台</span>
+    </div>
+    <div class="card-grid">
+      <div class="card marked" data-tags="中文,留学,博后">
+        <div class="card-name"><a href="https://muchong.com" target="_blank" rel="noopener">小木虫</a></div>
+        <div class="card-desc">华人最大科研社区，700 万+ 用户。有"出国留学区"、"海外博后"、"导师招生"等板块，大量海外学者和留学生聚集。</div>
+        <div class="card-tags"><span class="tag-highlight">华人首选</span><span>海外博后</span><span>留学</span><span>导师招生</span></div>
+      </div>
+      <div class="card marked" data-tags="中文,留学,求职">
+        <div class="card-name"><a href="https://instant.1point3acres.cn" target="_blank" rel="noopener">一亩三分地（留学论坛）</a></div>
+        <div class="card-desc">留学和海外求职知名社区，大量国外 CS/工科 在读学生和职场人士活跃，信息质量高。</div>
+        <div class="card-tags"><span class="tag-highlight">留学必看</span><span>海外求职</span><span>CS/工科</span></div>
+      </div>
+      <div class="card" data-tags="中文,期刊,论文">
+        <div class="card-name"><a href="https://www.xueshuquan.org" target="_blank" rel="noopener">学术圈中文网</a></div>
+        <div class="card-desc">学术期刊发表交流论坛，涵盖SCI/SSCI/北核等，也有考研、申博、导师关系交流版块。</div>
+        <div class="card-tags"><span>论文发表</span><span>申博</span><span>考研</span></div>
+      </div>
+      <div class="card" data-tags="社交,3D">
+        <div class="card-name"><a href="https://www.labroots.com" target="_blank" rel="noopener">LabRoots</a></div>
+        <div class="card-desc">为科学家和医学专家打造的免费社交网络。特色是 3D 虚拟场景交流（虚拟门厅、展厅、展台）。</div>
+        <div class="card-tags"><span>3D 虚拟交流</span><span>医学</span><span>资源共享</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 社交媒体 ======== -->
+  <section class="category" data-cat="social-media">
+    <div class="category-title">
+      <span class="icon">🐦</span>
+      社交媒体（学术生态活跃）
+      <span class="badge">4 个平台</span>
+    </div>
+    <div class="card-grid">
+      <div class="card marked" data-tags="社交,实时">
+        <div class="card-name"><a href="https://x.com" target="_blank" rel="noopener">Twitter / X</a></div>
+        <div class="card-desc">国外教授和 PhD 学生最活跃的阵地。#AcademicTwitter #PhDLife 标签下每天大量论文分享、学术讨论、招人帖。关注领域大牛即可获取前沿动态。</div>
+        <div class="card-tags"><span class="tag-highlight">最活跃</span><span>实时学术动态</span><span>招人帖</span></div>
+      </div>
+      <div class="card marked" data-tags="社交,职场">
+        <div class="card-name"><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></div>
+        <div class="card-desc">搜索教授/研究员/PhD 学生，直接 Connect 或发 InMail。很多导师会发布招人信息，适合建立 professional network。</div>
+        <div class="card-tags"><span class="tag-highlight">职场社交</span><span>直接联系</span><span>招人信息</span></div>
+      </div>
+      <div class="card marked" data-tags="论坛,问答">
+        <div class="card-name"><a href="https://www.reddit.com" target="_blank" rel="noopener">Reddit 学术版块</a></div>
+        <div class="card-desc">推荐版块：r/academia（学术界综合）、r/AskAcademia（提问）、r/gradadmissions（硕博申请）、r/PhD（博士生日常）、r/GradSchool（研究生生活）。</div>
+        <div class="card-tags"><span class="tag-highlight">真实讨论</span><span>版块丰富</span><span>匿名交流</span></div>
+      </div>
+      <div class="card" data-tags="社交,新兴">
+        <div class="card-name"><a href="https://bsky.app" target="_blank" rel="noopener">Bluesky</a></div>
+        <div class="card-desc">新兴学术社交阵地，很多学者从 Twitter 迁移至此。去中心化架构，学术氛围逐渐浓厚。</div>
+        <div class="card-tags"><span>新兴平台</span><span>学者迁移</span><span>去中心化</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 视频 / 资讯 ======== -->
+  <section class="category" data-cat="media">
+    <div class="category-title">
+      <span class="icon">📹</span>
+      视频 / 即时通讯 / 其他
+      <span class="badge">4 个平台</span>
+    </div>
+    <div class="card-grid">
+      <div class="card" data-tags="视频,学术频道">
+        <div class="card-name"><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube 学术频道</a></div>
+        <div class="card-desc">大量教授和 PhD 学生做学术分享、实验室 Vlog、课程讲座。评论区可直接互动提问。</div>
+        <div class="card-tags"><span>学术 Vlog</span><span>课程讲座</span><span>评论区互动</span></div>
+      </div>
+      <div class="card" data-tags="即时通讯">
+        <div class="card-name">Slack / Discord 学术社群</div>
+        <div class="card-desc">很多领域（如 ML/CS/生物等）有开放研究群，日常讨论活跃。可在 Twitter/Reddit 上找到邀请链接。</div>
+        <div class="card-tags"><span>即时交流</span><span>开放社群</span><span>领域专属</span></div>
+      </div>
+      <div class="card" data-tags="远程参会">
+        <div class="card-name"><a href="https://www.researchgate.net" target="_blank" rel="noopener">学术会议 / 线上研讨会</a></div>
+        <div class="card-desc">在 ResearchGate 和各大出版社官网可以找到 upcoming conferences。很多会议现在提供线上参会的选项。</div>
+        <div class="card-tags"><span>在线参会</span><span>学术会议</span><span>Networking</span></div>
+      </div>
+      <div class="card" data-tags="开放获取,论文">
+        <div class="card-name"><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></div>
+        <div class="card-desc">查学者 Profile、关注其最新发表、建立自己的学术档案。配合 ResearchGate 使用效果更佳。</div>
+        <div class="card-tags"><span>学术档案</span><span>论文追踪</span><span>免费</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用建议 -->
+  <div class="suggestion">
+    <h3>💡 实用建议 · 四步融入国际科研圈</h3>
+    <ol>
+      <li><strong>搭建学术 Profile：</strong>先去 ResearchGate + Google Scholar 注册，完善个人信息和论文列表</li>
+      <li><strong>关注领域大牛：</strong>在 Twitter/X 上搜索你感兴趣领域的知名学者，关注并参与互动</li>
+      <li><strong>加入讨论：</strong>订阅 Reddit 相关版块（r/academia、r/gradadmissions），每天浏览了解学术文化和招生动态</li>
+      <li><strong>主动 connect：</strong>在 LinkedIn 上礼貌地给教授/PhD 学生发连接请求，附上简短介绍</li>
+    </ol>
+  </div>
+
+  <footer>
+    Made with ❤️ for the global research community · 数据整理于 2025 年
+  </footer>
+
+</div>
+
+<script>
+  const btns = document.querySelectorAll('.filter-btn');
+  const cats = document.querySelectorAll('.category');
+  const cards = document.querySelectorAll('.card');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cats.forEach(cat => {
+        if (filter === 'all' || cat.dataset.cat === filter) {
+          cat.style.display = 'block';
+        } else {
+          cat.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
